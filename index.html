@@ -7,17 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <!-- Phosphor Icons for clean SVG icons -->
+  
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
-            /* 65% Black (#000000) to 25% Orange (#c2410c) Gradient concept */
+
             background: linear-gradient(135deg, #000000 0%, #0f0f0f 65%, #c2410c 100%);
-            background-attachment: fixed; /* Ensures seamless transition */
-            color: #f1f5f9; /* Slate-100 */
+            background-attachment: fixed; 
+            color: #f1f5f9; 
             min-height: 100vh;
         }
         
@@ -28,7 +28,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Behind everything */
+            z-index: -1; 
             pointer-events: none; 
         }
 
@@ -40,17 +40,17 @@
             background: #0a0a0a;
         }
         ::-webkit-scrollbar-thumb {
-            background: #f97316; /* Orange-500 */
+            background: #f97316; 
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #fb923c; /* Orange-400 */
+            background: #fb923c; 
         }
 
         /* Typed.js Cursor Styling */
         .typed-cursor {
-            font-size: 3.5rem; /* Increased from 3rem */
-            color: #f97316; /* Orange-500 */
+            font-size: 3.5rem; 
+            color: #f97316; 
             font-weight: 300;
         }
 
@@ -137,7 +137,7 @@
                 Computer Science student focusing on NLP and Machine Learning. I engineer Transformer models and work in RLHF to improve LLM safety and alignment.
             </p>
             <div class="flex gap-6 hero-el">
-                <a href="#portfolio" class="text-lg bg-orange-600 text-white px-10 py-5 rounded-sm font-medium hover:bg-orange-500 transition-colors duration-300 shadow-lg shadow-orange-900/20">
+                <a href="https://drive.google.com/file/d/1id2W9hYdaqVXVdLz3vKHQcVQaX7ldVx1/view?usp=sharing" class="text-lg bg-orange-600 text-white px-10 py-5 rounded-sm font-medium hover:bg-orange-500 transition-colors duration-300 shadow-lg shadow-orange-900/20">
                     My CV!
                 </a>
                 <a href="#portfolio" class="text-lg border border-white/20 text-white px-10 py-5 rounded-sm font-medium hover:bg-white/10 hover:border-white transition-all duration-300">
@@ -180,7 +180,7 @@
             <h2 class="text-4xl font-bold mb-14 text-white scroll-reveal">Technical Skills</h2>
             <div class="grid md:grid-cols-3 gap-10">
                 
-                <!-- AI / ML -->
+                
                 <div class="glass-card p-10 rounded-sm scroll-reveal">
                     <h3 class="text-2xl font-bold text-orange-500 mb-8 flex items-center gap-3">
                         <i class="ph ph-brain"></i> AI & Machine Learning
@@ -195,7 +195,7 @@
                     </div>
                 </div>
 
-                <!-- Web & Tools -->
+                
                 <div class="glass-card p-10 rounded-sm scroll-reveal">
                     <h3 class="text-2xl font-bold text-orange-500 mb-8 flex items-center gap-3">
                         <i class="ph ph-code"></i> Web & Tools
@@ -210,7 +210,7 @@
                     </div>
                 </div>
 
-                <!-- Soft Skills -->
+                
                 <div class="glass-card p-10 rounded-sm scroll-reveal">
                     <h3 class="text-2xl font-bold text-orange-500 mb-8 flex items-center gap-3">
                         <i class="ph ph-users"></i> Collaboration
@@ -233,7 +233,6 @@
             <h2 class="text-4xl font-bold mb-14 text-white scroll-reveal">Education</h2>
             
             <div class="glass-card p-10 md:p-14 rounded-sm relative overflow-hidden scroll-reveal">
-                <!-- Decorative background element -->
                 <div class="absolute top-0 right-0 w-72 h-72 bg-orange-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
                 
                 <div class="flex flex-col md:flex-row justify-between items-start gap-8 relative z-10">
@@ -244,7 +243,7 @@
                             Focusing on Machine Learning, Intelligent Systems, and Software Engineering.
                         </p>
 
-                        <!-- Added Coursework Quips -->
+                       
                         <div class="mt-10">
                             <h4 class="text-base font-bold text-gray-500 uppercase tracking-wider mb-4">Relevant Coursework</h4>
                             <div class="flex flex-wrap gap-3">
@@ -278,7 +277,7 @@
             
             <div class="space-y-16 relative border-l border-white/10 ml-3 pl-10 md:ml-0 md:pl-0">
                 
-                <!-- Item 1 -->
+               
                 <div class="relative md:grid md:grid-cols-5 gap-10 scroll-reveal group">
                     <div class="absolute -left-[49px] md:left-auto md:right-0 md:relative top-2 w-5 h-5 rounded-full bg-orange-600 border-2 border-orange-900 z-10 group-hover:bg-white transition-colors"></div>
                     <div class="md:col-span-1 md:text-right">
@@ -443,7 +442,7 @@
 
             // --- Anime.js Entrance Animations ---
             
-            // Hero Elements 
+            
             anime({
                 targets: '.hero-el',
                 translateY: [20, 0],
@@ -463,7 +462,7 @@
                 delay: anime.stagger(100)
             });
 
-            // Scroll Reveal Logic using Intersection Observer + Anime.js
+            
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -480,14 +479,14 @@
                             easing: 'easeOutCubic',
                             duration: 1000
                         });
-                        observer.unobserve(entry.target); // Only animate once
+                        observer.unobserve(entry.target); 
                     }
                 });
             }, observerOptions);
 
             // Target all elements with class 'scroll-reveal'
             document.querySelectorAll('.scroll-reveal').forEach(el => {
-                el.style.opacity = 0; // Initially hide
+                el.style.opacity = 0; 
                 observer.observe(el);
             });
 
@@ -539,7 +538,7 @@
             let particles = [];
             
             // Configuration
-            const particleCount = window.innerWidth < 768 ? 30 : 60; // Fewer particles on mobile
+            const particleCount = window.innerWidth < 768 ? 30 : 60; 
             const connectionDistance = 150;
             const mouseDistance = 200;
             
@@ -637,7 +636,7 @@
 
                         if (distance < connectionDistance) {
                             ctx.beginPath();
-                            // Subtle white lines
+                            
                             ctx.strokeStyle = `rgba(255, 255, 255, ${0.08 - distance / connectionDistance * 0.08})`;
                             ctx.lineWidth = 1;
                             ctx.moveTo(particles[i].x, particles[i].y);
@@ -653,7 +652,7 @@
                         
                         if (distance < connectionDistance) {
                             ctx.beginPath();
-                            // Orange interaction lines
+                            
                             ctx.strokeStyle = `rgba(249, 115, 22, ${0.6 - distance / connectionDistance})`; 
                             ctx.lineWidth = 1;
                             ctx.moveTo(particles[i].x, particles[i].y);
