@@ -58,7 +58,7 @@
         .glass-card {
             background: rgba(20, 20, 20, 0.6);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(249, 115, 22, 0.1); /* Slight orange tint border */
+            border: 1px solid rgba(249, 115, 22, 0.1);
         }
         .glass-nav {
             background: rgba(0, 0, 0, 0.85);
@@ -68,7 +68,7 @@
 
         /* Utilities */
         .section-padding {
-            padding-top: 7rem; /* Slight increase for spacing */
+            padding-top: 7rem;
             padding-bottom: 7rem;
         }
         
@@ -82,7 +82,7 @@
         }
     </style>
 </head>
-<body class="antialiased relative selection:bg-orange-500 selection:text-white text-lg"> <!-- Base text size increased to lg -->
+<body class="antialiased relative selection:bg-orange-500 selection:text-white text-lg"> 
 
     <!-- Interactive Background Canvas -->
     <canvas id="canvas-bg"></canvas>
@@ -90,7 +90,7 @@
     <!-- Navigation -->
     <nav class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between"> 
-            <!-- Desktop Links -->
+            
             <div class="hidden md:flex space-x-8"> 
                 <a href="#about" class="text-base font-medium text-gray-400 hover:text-white transition-colors nav-item">About</a>
                 <a href="#skills" class="text-base font-medium text-gray-400 hover:text-white transition-colors nav-item">Skills</a>
@@ -121,11 +121,16 @@
         <a href="#contact" class="text-3xl font-medium text-white mobile-link">Contact</a>
     </div>
 
+ <button id="back-to-top" class="fixed bottom-8 right-8 z-50 bg-black/40 backdrop-blur-md border border-white/10 text-white px-5 py-3 rounded-full shadow-lg opacity-0 translate-y-4 transition-all duration-300 hover:bg-orange-600 hover:border-orange-600 focus:outline-none pointer-events-none flex items-center gap-2 group">
+        <span class="text-sm font-medium">To the top</span>
+        <i class="ph ph-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
+    </button>   
+
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto pt-24">
         <div class="hero-content">
-            <p class="text-orange-500 font-semibold mb-6 tracking-wide uppercase text-3xl hero-el">Hello, my name is Vincenzo Christi Azarya</p>
-            <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-8 leading-tight hero-el">
+            <p class="text-orange-500 font-semibold mb-6 tracking-wide uppercase text-5xl hero-el">Hello, my name is Vincenzo Christi Azarya</p>
+            <h1 class="text-xl md:text-7xl font-extrabold text-white mb-8  leading-tight hero-el">
                 I optimize <span id="typed-output" class="text-orange-500"></span>
             </h1>
             <p class="text-2xl text-gray-400 max-w-3xl leading-relaxed mb-12 hero-el">
@@ -133,10 +138,10 @@
             </p>
             <div class="flex gap-6 hero-el">
                 <a href="#portfolio" class="text-lg bg-orange-600 text-white px-10 py-5 rounded-sm font-medium hover:bg-orange-500 transition-colors duration-300 shadow-lg shadow-orange-900/20">
-                    View My Work
+                    My CV!
                 </a>
-                <a href="#contact" class="text-lg border border-white/20 text-white px-10 py-5 rounded-sm font-medium hover:bg-white/10 hover:border-white transition-all duration-300">
-                    Contact Me
+                <a href="#portfolio" class="text-lg border border-white/20 text-white px-10 py-5 rounded-sm font-medium hover:bg-white/10 hover:border-white transition-all duration-300">
+                    My Projects!
                 </a>
             </div>
         </div>
@@ -146,9 +151,15 @@
     <section id="about" class="section-padding">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
             <div class="relative scroll-reveal">
-                <!-- Abstract visual element -->
-                <div class="aspect-square glass-card rounded-sm overflow-hidden relative group flex items-center justify-center">
-                    <i class="ph ph-brain text-9xl text-white/10 group-hover:text-orange-500 group-hover:scale-110 transition-all duration-500"></i>
+                <!-- Portrait Image Container -->
+                <div class="aspect-[3/4] rounded-sm relative group flex items-end justify-center">
+                    <!-- Subtle backlight glow behind the subject -->
+                    <div class="absolute inset-0 bg-orange-500/20 blur-[80px] rounded-full scale-75 pointer-events-none"></div>
+                    
+                    <!-- Replace src with your transparent PNG half-body photo -->
+                    <img src="assets/me.png" 
+                         alt="Portrait of Vincenzo Christi Azarya" 
+                         class="w-full h-full object-cover object-bottom drop-shadow-2xl relative z-2 group-hover:scale-1 transition-transform duration-700">
                 </div>
             </div>
             <div class="scroll-reveal">
@@ -500,6 +511,26 @@
             
             mobileLinks.forEach(link => {
                 link.addEventListener('click', toggleMenu);
+            });
+
+             // --- Back to Top Logic ---
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    backToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
 
             // --- Canvas Background Animation ---
